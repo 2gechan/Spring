@@ -1,0 +1,52 @@
+@charset "UTF-8";
+div.user.mypage {
+  background-color: antiquewhite;
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.user.mypage div.info {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+}
+
+div.info label {
+  width: 30%;
+  color: cornflowerblue;
+}
+
+div.info span {
+  flex: 1;
+}
+
+table.user.list {
+  width: 80%;
+  background-color: #777;
+  margin: 30px auto 10px;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+
+table.user.list th,
+table.user.list td {
+  text-align: center;
+  padding: 0.8rem;
+}
+
+table.user.list tr:nth-of-type(even) {
+  background-color: #d0b6d6;
+}
+
+table.user.list tr:nth-of-type(odd) {
+  background-color: #ecc8c8;
+}
+
+table.user.list tr:hover {
+  background-color: #c7c0c0;
+  cursor: pointer;
+}

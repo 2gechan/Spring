@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <h1>게시판화면</h1>
+
+    <table class="main list">
+      <tr>
+        <th>No</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일자</th>
+        <th>조회수</th>
+      </tr>
+      <th:block th:if="${BOARDS != null}">
+        <th:block th:each="DTO,i : ${BOARDS}">
+          <tr th:data-id="${DTO.b_seq}">
+            <td th:text="${DTO.b_seq}"></td>
+            <td th:text="${DTO.b_title}"></td>
+            <td th:text="${DTO.b_nickname}"></td>
+            <td th:text="${DTO.b_date}"></td>
+            <td th:text="${DTO.b_viewcount}"></td>
+          </tr>
+        </th:block>
+      </th:block>
+    </table>
+    <div class="list pagination">
+      <ul class="paging">
+        <th:block th:if="${PAGINATION.pageNum > 0}">
+          <li class="bPage" th:data-id="${PAGINATION.pageNum}">&lt;</li>
+        </th:block>
+
+        <th:block
+          th:each="PAGE : ${#numbers.sequence(PAGINATION.firstPageNum,PAGINATION.lastPageNum)}"
+        >
+          <li><a th:href="@{/board?page=}+${PAGE}" th:text="${PAGE}"></a></li
+        ></th:block>
+
+        <th:block th:if="${PAGINATION.finalPageNum > PAGINATION.pageNum}">
+          <li class="nPage" th:data-id="${PAGINATION.pageNum}">&gt;</li>
+        </th:block>
+      </ul>
+    </div>
+    <div class="list div">
+      <span class="write_btn">글쓰기</span> <span class="best_btn">인기글</span>
+    </div>
+  </section>
+</html>

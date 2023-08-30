@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <h1>글내용 보기 화면</h1>
+    <form action="" method="POST" class="main detail">
+      <div class="detail">
+        <label>조회수</label
+        ><input
+          type="text"
+          th:value="${DETAIL.b_viewcount}"
+          name="b_viewcount"
+          readonly
+        />
+      </div>
+      <div class="detail">
+        <label>제목</label
+        ><input
+          type="text"
+          th:value="${DETAIL.b_title}"
+          name="b_title"
+          readonly
+        />
+      </div>
+      <div class="detail">
+        <label>작성자</label
+        ><input
+          type="text"
+          th:value="${DETAIL.b_nickname}"
+          name="b_nickname"
+          readonly
+        />
+      </div>
+      <div class="detail">
+        <label>작성날짜</label
+        ><input
+          type="text"
+          th:value="${DETAIL.b_date}"
+          name="b_date"
+          readonly
+        />
+      </div>
+
+      <div class="detail content">
+        <label>내용</label>
+        <textarea
+          name="b_content"
+          th:text="${DETAIL.b_content}"
+          readonly
+        ></textarea>
+      </div>
+      <div class="detail">
+        <button
+          class="update_btn"
+          type="button"
+          th:data-update="${DETAIL.b_seq}"
+        >
+          수정페이지 이동
+        </button>
+        <button class="boardhome_btn" type="button">뒤로가기</button>
+      </div>
+    </form>
+
+    <div>댓글</div>
+    <div th:each="DTO,i : ${COMMENT_LIST}">
+      <p th:text="${i.count}"></p>
+      <p th:text="DTO.c_comment"></p>
+    </div>
+    <form action="" method="POST" class="comment">
+      <div>
+        <label for="">댓글작성</label>
+        <input type="text" name="c_id" readonly />
+        <textarea name="c_comment"></textarea>
+      </div>
+      <button type="submit">쓰기</button>
+    </form>
+  </section>
+</html>

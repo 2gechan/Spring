@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+div.main.mypage {
+  width: 60%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main.mypage div {
+  margin: 10px 0;
+}

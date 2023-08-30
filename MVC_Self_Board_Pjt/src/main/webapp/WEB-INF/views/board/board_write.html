@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <form action="" method="POST" class="main write">
+      <div class="write">
+        <label>제목</label>
+        <input type="text" placeholder="제목" name="b_title" />
+      </div>
+      <div class="write">
+        <label>작성자</label
+        ><input
+          type="text"
+          th:value="${BOARD.b_nickname}"
+          name="b_nickname"
+          readonly
+        />
+      </div>
+      <div class="write">
+        <label>작성날짜</label
+        ><input type="text" th:value="${BOARD.b_date}" name="b_date" readonly />
+      </div>
+
+      <div class="write content">
+        <label>내용</label>
+        <textarea name="b_content" id="" placeholder="내용"></textarea>
+        <!-- <input type="text" placeholder="내용" name="b_content" /> -->
+      </div>
+      <div class="write">
+        <button type="submit">저장</button>
+        <span class="boardhome_btn">뒤로가기</span>
+      </div>
+    </form>
+  </section>
+</html>

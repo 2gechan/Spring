@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 만들기</title>
+
+    <link th:href="@{/resources/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/resources/css/join.css}" rel="stylesheet" />
+    <link th:href="@{/resources/css/board.css}" rel="stylesheet" />
+    <link th:href="@{/resources/css/mypage.css}" rel="stylesheet" />
+    <script th:inline="javascript">
+      var rootPath = /*[[@{/}]]*/ "";
+    </script>
+    <script th:src="@{/resources/js/nav_main.js?version=1}"></script>
+    <script th:src="@{/resources/js/join_validation.js}"></script>
+    <script th:src="@{/resources/js/join.js}"></script>
+    <script th:src="@{/resources/js/btnClick.js}"></script>
+    <script th:src="@{/resources/js/detail.js}"></script>
+    <script th:src="@{/resources/js/paging.js}"></script>
+  </head>
+  <body th:with="LOGIN = ${session.LOGINUSER}">
+    <header th:replace="~{include/include :: header}" />
+    <nav th:replace="~{include/include :: nav}" />
+
+    <section class="main" layout:fragment="content">
+      <h1>Body Main</h1>
+    </section>
+
+    <footer th:replace="~{include/include :: footer}" />
+  </body>
+</html>

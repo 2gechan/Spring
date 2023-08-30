@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.callor.mycar.dao.MyCarDao">
+
+	<insert id="insert">
+		insert into tbl_mycar(mc_seq, mc_div, mc_sdate,
+		mc_stime, mc_sdistance,
+		mc_edate, mc_etime, mc_place, mc_edistance,
+		mc_cost)
+		values(#{mc_seq}, #{mc_div}, #{mc_sdate}, #{mc_stime},
+		#{mc_sdistance}, #{mc_edate},
+		#{mc_etime}, #{mc_place},
+		#{mc_edistance}, #{mc_cost})
+	</insert>
+
+	<update id="update">
+		update tbl_mycar set
+		mc_div = #{mc_div},
+		mc_sdistance = #{mc_sdistance},
+		mc_place = #{mc_place},
+		mc_edate = #{mc_edate},
+		mc_etime = #{mc_etime},
+		mc_edistance = #{mc_edistance},
+		mc_cost = #{mc_cost}
+		where mc_seq = #{mc_seq}
+	</update>
+
+</mapper> 

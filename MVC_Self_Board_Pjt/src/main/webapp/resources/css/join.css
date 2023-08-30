@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* join */
+form.main.join,
+form.main.login {
+  width: 60%;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: wheat;
+  border-radius: 8px;
+}
+
+form.main.join div,
+form.main.login div {
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.main.join div label form.main.login div label {
+  color: green;
+}
+
+form.main.join div label,
+form.main.join div input,
+form.main.login div label,
+form.main.login div input {
+  width: 100%;
+}
+
+form.main.join div input,
+form.main.login div input {
+  padding: 3px;
+}
+
+form.main div.error {
+  margin: 1px auto;
+  width: 80%;
+  display: none;
+  color: red;
+}
+
+form.main div.error.on {
+  display: inline-block;
+}
+
+form.main div button {
+  background-color: rgb(242, 193, 151);
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+}
+
+form.main div button:hover {
+  cursor: pointer;
+  background-color: sandybrown;
+}
+
+form.main div button:active {
+  background-color: rgb(242, 193, 151);
+}
+
+/* login */

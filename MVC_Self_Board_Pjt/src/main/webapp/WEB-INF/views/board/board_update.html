@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <h1>업데이트 화면</h1>
+    <form
+      action=""
+      method="POST"
+      class="main update"
+      th:data-update="${UPDATE.b_seq}"
+    >
+      <div class="update">
+        <label for="">SEQ</label
+        ><input type="text" th:value="${UPDATE.b_seq}" name="b_seq" readonly />
+      </div>
+      <div class="update">
+        <label>제목</label
+        ><input type="text" th:value="${UPDATE.b_title}" name="b_title" />
+      </div>
+      <div class="update">
+        <label>작성자</label
+        ><input
+          type="text"
+          th:value="${UPDATE.b_nickname}"
+          name="b_nickname"
+          readonly
+        />
+      </div>
+      <div class="update">
+        <label>작성날짜</label
+        ><input type="text" th:value="${UPDATE.b_date}" name="b_date" />
+      </div>
+
+      <div class="update content">
+        <label>내용</label>
+        <textarea name="b_content" th:text="${UPDATE.b_content}"></textarea>
+      </div>
+      <div class="update">
+        <button class="go_update_btn" type="submit">수정하기</button>
+        <button class="boardhome_btn" type="button">리스트로</button>
+      </div>
+    </form>
+  </section>
+</html>

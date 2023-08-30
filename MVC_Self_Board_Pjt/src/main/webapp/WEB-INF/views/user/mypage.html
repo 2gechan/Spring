@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/home}"
+>
+  <section layout:fragment="content">
+    <h1>마이페이지화면</h1>
+    <div class="user mypage">
+      <div class="info">
+        <label for="">아이디</label><span th:text="${USER.u_id}"></span>
+      </div>
+      <div class="info">
+        <label for="">이름</label><span th:text="${USER.u_name}"></span>
+      </div>
+      <div class="info">
+        <label for="">전화번호</label><span th:text="${USER.u_tel}"></span>
+      </div>
+      <div class="info">
+        <label for="">주소</label><span th:text="${USER.u_addr}"></span>
+      </div>
+    </div>
+
+    <table class="user list">
+      <tr>
+        <th>No</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일자</th>
+        <th>조회수</th>
+      </tr>
+
+      <th:block th:each="DTO : ${USERBOARD}">
+        <tr th:data-id="${DTO.b_seq}">
+          <td th:text="${DTO.b_seq}"></td>
+          <td th:text="${DTO.b_title}"></td>
+          <td th:text="${DTO.b_nickname}"></td>
+          <td th:text="${DTO.b_date}"></td>
+          <td th:text="${DTO.b_viewcount}"></td>
+        </tr>
+      </th:block>
+    </table>
+  </section>
+</html>

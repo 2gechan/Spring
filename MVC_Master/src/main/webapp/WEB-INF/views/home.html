@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:layout="http://www.ltraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타임리프 기본 구조</title>
+
+    <link th:href="@{}" rel="stylesheet" />
+    <script th:inline="javascript">
+      var rootPath = /*[[@{/}]]*/ "";
+    </script>
+    <script th:src="@{}"></script>
+  </head>
+  <body">
+    <header th:replace="~{include :: header}" />
+    <nav th:replace="~{include :: nav}" />
+
+    <section class="main" layout:fragment="content">
+      <h1>Body Main</h1>
+    </section>
+
+    <footer th:replace="~{include :: footer}" />
+  </body>
+</html>

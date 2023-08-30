@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gechan.futsal.dao.FieldDao">
+
+	<insert id="insert">
+		insert into tbl_field(f_uid, f_name, f_tel)
+		values(#{f_uid}, #{f_name}, #{f_tel})
+	</insert>
+
+	<select id="selectAll">
+	</select>
+
+	<select id="findById"></select>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+
+</mapper> 
