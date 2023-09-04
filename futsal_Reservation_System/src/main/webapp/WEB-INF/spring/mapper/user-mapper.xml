@@ -19,7 +19,11 @@
 	<select id="findById">
 		select * from tbl_users where u_id = #{u_id}
 	</select>
-	<update id="update"></update>
+	<update id="update">
+		update tbl_users set u_name=#{u_name}, u_password=#{u_password},
+		u_tel=#{u_tel}, u_team=#{u_team} where u_id=#{u_id};
+
+	</update>
 	<delete id="delete">
 		delete from tbl_users where u_id= #{u_id}
 	</delete>

@@ -17,4 +17,6 @@ public interface UserService {
 	public String mypage(UserDto userDto);
 
 	public int delete(String id);
+
+	public int update(UserDto userDto);
 }

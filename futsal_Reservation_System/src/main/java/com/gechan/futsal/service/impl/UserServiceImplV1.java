@@ -69,4 +69,10 @@ public class UserServiceImplV1 implements UserService {
 		return userDao.delete(id);
 	}
 
+	@Override
+	public int update(UserDto userDto) {
+		// TODO Auto-generated method stub
+		return userDao.update(userDto);
+	}
+
 }

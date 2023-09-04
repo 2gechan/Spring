@@ -12,8 +12,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class FieldDto {
-	private String f_cnumber;
+	private long f_cnumber;
 	private String f_uid;
     private String f_name;
 	private String f_tel;
+	private String f_main_image;
+	
 }

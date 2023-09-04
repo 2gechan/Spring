@@ -11,7 +11,7 @@
 		<label>아이디</label><input placeholder="ID" name="u_id" />
 	</div>
 	<div class="login pwd">
-		<label>패스워드</label><input placeholder="PASSWORD" name="u_password" />
+		<label>패스워드</label><input placeholder="PASSWORD" type="password" name="u_password" />
 	</div>
 	<div class="login button">
 		<button type="button">로그인</button>

@@ -18,7 +18,7 @@
 	</bean>
 
 	<mvc:resources mapping="/files/**"
-		location="file:///Users/isechan/Document/workspace/files/">
+		location="file:///Users/isechan/Documents/workspace/files/">
 	</mvc:resources>
 	<task:annotation-driven />
 </beans>

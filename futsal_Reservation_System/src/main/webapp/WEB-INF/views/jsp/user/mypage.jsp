@@ -23,12 +23,12 @@
 	<c:if test="${DIV == 'CEO'}">
 		<h1>사업자 번호, 구장이름 보여주기</h1>
 	</c:if>
-	<div>
+	<div class="mypage button">
 		<c:if test="${DIV == 'CEO'}">
-			<button class="reg button" data-id="${USER.u_id}">구장 등록(수정)</button>
+			<button type="button" class="reg button" data-id="${USER.u_id}">구장 등록(수정)</button>
 		</c:if>
-		<button class="update button" data-id="${USER.u_id}">회원정보 수정</button>
-		<button class="delete button" data-id="${USER.u_id}">회원탈퇴</button>
+		<button type="button" class="update button" data-id="${USER.u_id}">회원정보 수정</button>
+		<button type="button" class="delete button" data-id="${USER.u_id}">회원탈퇴</button>
 	</div>
 </div>
 <h1>최근 예약 내역 5개 까지만 보여주기</h1>

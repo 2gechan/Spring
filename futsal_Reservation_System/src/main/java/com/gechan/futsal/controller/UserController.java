@@ -66,7 +66,12 @@ public class UserController {
 		if (result.equals("OK")) {
 			UserDto loginUser = userService.findById(userDto.getU_id());
 			httpSession.setAttribute("LOGINUSER", loginUser);
-			return "redirect:/";
+			if(loginUser.getU_div().equals("사업자")) {
+				
+				return "redirect:/ceo/ceopage";
+			} else {
+				return "redirect:/";
+			}
 		} else {
 			return "redirect:/login-page?error=" + result;
 		}
@@ -105,9 +110,32 @@ public class UserController {
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(String id, HttpSession httpSession) {
 		int result = userService.delete(id);
-		if(result > 0) {
+		if (result > 0) {
 			httpSession.removeAttribute("LOGINUSER");
 		}
 		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(String id, Model model, HttpSession httpSession) {
+		if(httpSession.getAttribute("LOGINUSER") == null) {
+			return "redirect:/login-page";
+		}
+		UserDto updateDto = userService.findById(id);
+		model.addAttribute("DTO", updateDto);
+		model.addAttribute("BODY", "UPDATE");
+
+		return "index";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(UserDto userDto, HttpSession httpSession) {
+		int result = userService.update(userDto);
+		if(result > 0) {
+			httpSession.removeAttribute("LOGINUSER");
+			UserDto dto = userService.findById(userDto.getU_id());
+			httpSession.setAttribute("LOGINUSER", dto);
+		}
+		return "redirect:/my-page";
 	}
 }

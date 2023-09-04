@@ -5,16 +5,32 @@
 
 <mapper namespace="com.gechan.futsal.dao.FieldDao">
 
-	<insert id="insert">
-		insert into tbl_field(f_uid, f_name, f_tel)
-		values(#{f_uid}, #{f_name}, #{f_tel})
+	<insert id="insert" useGeneratedKeys="true" keyProperty="f_cnumber">
+		insert into tbl_field(f_uid, f_name, f_tel, f_main_image)
+		values(#{f_uid}, #{f_name}, #{f_tel}, #{f_main_image})
+		<selectKey databaseId="mysql" keyColumn="f_cnumber"
+			keyProperty="f_cnumber">
+			select last_insert_id()
+		</selectKey>
 	</insert>
 
 	<select id="selectAll">
+		select * from tbl_field order by f_cnumber
 	</select>
 
-	<select id="findById"></select>
-	<update id="update"></update>
-	<delete id="delete"></delete>
+	<select id="findById">
+		select * from tbl_field where f_cnumber =
+		#{f_cnumber}
+	</select>
+
+	<update id="update">
+		update tbl_field set f_uid=#{f_uid},
+		f_name=#{f_name}, f_tel=#{f_tel}
+		where f_cnumber = #{f_cnumber}
+	</update>
+
+	<delete id="delete">
+		delete from tbl_field where f_cnumber = #{f_cnumber}
+	</delete>
 
 </mapper> 

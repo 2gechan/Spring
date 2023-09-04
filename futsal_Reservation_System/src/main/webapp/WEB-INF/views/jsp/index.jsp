@@ -28,7 +28,10 @@
 
 </head>
 <body>
-	<header>
+	<header class="main title">
+		<button class="onOff">
+		&#61
+		</button>
 		<h1>Every Futsal</h1>
 	</header>
 
@@ -55,7 +58,7 @@
 			</section>
 		</div>
 		<div class="main-wrapper">
-			<button class="onOff">메뉴온오프</button>
+
 			<c:if test="${empty BODY}">
 				<%@ include file="/WEB-INF/views/jsp/temp.jsp"%>
 			</c:if>
@@ -72,6 +75,14 @@
 			<c:if test="${BODY == 'MYPAGE'}">
 				<%@ include file="/WEB-INF/views/jsp/user/mypage.jsp"%>
 			</c:if>
+			<c:if test="${BODY == 'UPDATE'}">
+				<%@ include file="/WEB-INF/views/jsp/user/infoupdate.jsp"%>
+			</c:if>
+			
+			<c:if test="${BODY == 'RESERV'}">
+				<%@ include file="/WEB-INF/views/jsp/futsal/field-reservation.jsp"%>
+			</c:if>
+
 		</div>
 	</div>
 

@@ -39,13 +39,23 @@ document.addEventListener("DOMContentLoaded", () => {
       error_pwd2.classList.add("on");
       return false;
     }
+
+    if (pwd1.value === pwd2.value) {
+      error_pwd1.innerText = "패스워드가 일치하지 않습니다.";
+      error_pwd1.classList.add("on");
+      pwd1.focus();
+      error_pwd2.innerText = "패스워드가 일치하지 않습니다.";
+      error_pwd2.classList.add("on");
+      return false;
+    }
+
     if (!name.value) {
       error_name.innerText = "이름을 입력하세요";
       error_name.classList.add("on");
       return false;
     }
     if (!tel.value) {
-      error_tel.innerText = "전화보를 입력하세요";
+      error_tel.innerText = "전화번호를 입력하세요";
       error_tel.classList.add("on");
       return false;
     }
