@@ -29,8 +29,10 @@
 				<div class="admin field">
 					<div class="dashboard title">
 						<span class="field-admin">구장관리</span>
-						<img alt="" src="">
+
 					</div>
+					<img alt="" src="${rootPath}/files/${MAINFIELD.f_main_image}" width="200px" height="200px">
+					<span>${MAINFIELD.f_name}</span>
 				</div>
 				<div class="admin review">
 					<div class="dashboard title">

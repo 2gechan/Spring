@@ -5,7 +5,8 @@
 
 <mapper namespace="com.gechan.futsal.dao.FieldDao">
 
-	<insert id="insert" useGeneratedKeys="true" keyProperty="f_cnumber">
+	<insert id="insert" useGeneratedKeys="true"
+		keyProperty="f_cnumber">
 		insert into tbl_field(f_uid, f_name, f_tel, f_main_image)
 		values(#{f_uid}, #{f_name}, #{f_tel}, #{f_main_image})
 		<selectKey databaseId="mysql" keyColumn="f_cnumber"
@@ -18,9 +19,13 @@
 		select * from tbl_field order by f_cnumber
 	</select>
 
-	<select id="findById">
-		select * from tbl_field where f_cnumber =
-		#{f_cnumber}
+	<select id="findByName">
+		select * from tbl_field where f_uid = #{f_uid}
+	</select>
+
+	<select id="findByImageName">
+		select * from tbl_field where f_main_image =
+		#{f_main_image}
 	</select>
 
 	<update id="update">

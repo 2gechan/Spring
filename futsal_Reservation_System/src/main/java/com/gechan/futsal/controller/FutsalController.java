@@ -17,18 +17,19 @@ import com.gechan.futsal.dao.FileDao;
 import com.gechan.futsal.models.FieldDto;
 import com.gechan.futsal.models.FileDto;
 import com.gechan.futsal.models.UserDto;
+import com.gechan.futsal.service.FieldService;
 import com.gechan.futsal.service.FileService;
 
 @Controller
 public class FutsalController {
 
 	private final FileService fileService;
-	private final FieldDao fieldDao;
+	private final FieldService fieldService;
 	private final FileDao fileDao;
 
-	public FutsalController(FileService fileService, FieldDao fieldDao, FileDao fileDao) {
+	public FutsalController(FileService fileService, FieldService fieldService, FileDao fileDao) {
 		this.fileService = fileService;
-		this.fieldDao = fieldDao;
+		this.fieldService = fieldService;
 		this.fileDao = fileDao;
 	}
 
@@ -38,6 +39,8 @@ public class FutsalController {
 		if (userDto == null) {
 			return "redirect:/";
 		}
+		FieldDto fieldDto = fieldService.findByName(userDto.getU_id());
+		model.addAttribute("MAINFIELD", fieldDto);
 		model.addAttribute("CEO", userDto);
 
 		return "ceo/ceopage";
@@ -45,6 +48,7 @@ public class FutsalController {
 
 	@RequestMapping(value = "ceo/field-admin", method = RequestMethod.GET)
 	public String regField(String id, Model model) {
+		
 		model.addAttribute("CEOBODY", "REG");
 
 		return "ceo/ceopage";
@@ -67,7 +71,7 @@ public class FutsalController {
 
 			}
 			fieldDto.setF_uid(userDto.getU_id());
-			int result = fieldDao.insert(fieldDto);
+			int result = fieldService.insert(fieldDto);
 
 			if (f_images.getFile("f_images").getSize() > 0) {
 				List<FileDto> files = fileService.filesUp(f_images);
@@ -84,11 +88,24 @@ public class FutsalController {
 
 	@RequestMapping(value = "/reservation-page", method = RequestMethod.GET)
 	public String revField(Model model) {
-		
-		List<FieldDto> fieldList = fieldDao.selectAll();
+
+		List<FieldDto> fieldList = fieldService.selectAll();
 
 		model.addAttribute("FIELDS", fieldList);
 		model.addAttribute("BODY", "RESERV");
 		return "index";
+	}
+
+	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
+	public String reservation(String field, HttpSession httpSession, Model model) {
+		UserDto userDto = (UserDto) httpSession.getAttribute("LOGINUSER");
+		if(userDto == null) {
+			// model.addAttribute("BODY", "LOGIN");
+			return "redirect:/login-page";
+		}
+		
+		int result = fieldService.fieldReservation(field, userDto);
+
+		return "redirect:/";
 	}
 }

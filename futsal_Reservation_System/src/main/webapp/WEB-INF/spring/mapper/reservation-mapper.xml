@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gechan.futsal.dao.ReservationDao">
+
+	<insert id="insert" >
+		insert into tbl_reservation(r_fname, r_uteam, r_uname)
+		values(#{r_fname}, #{r_uteam}, #{r_uname})
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_field where f_cnumber = #{f_cnumber}
+	</delete>
+
+</mapper> 

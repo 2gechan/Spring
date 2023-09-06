@@ -10,10 +10,11 @@ public interface FieldDao {
 
 	public List<FieldDto> selectAll();
 	
-	public FieldDto findById(long cnumber);
+	public FieldDto findByName(String u_id);
 	
 	public int update(FieldDto fieldDto);
 	
 	public int delete(long cnumber);
 
+	public FieldDto findByImageName(String imageName);
 }

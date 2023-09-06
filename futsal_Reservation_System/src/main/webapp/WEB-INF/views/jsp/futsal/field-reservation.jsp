@@ -8,8 +8,10 @@
 	<c:forEach items="${FIELDS}" var="FIELD">
 
 		<div>
-			<img alt="" src="${rootPath}/files/${FIELD.f_main_image}" width="100px">
-			<div>${FIELD.f_name}</div>
+			<a href="${rootPath}/reservation?field=${FIELD.f_main_image}"> <img alt=""
+				src="${rootPath}/files/${FIELD.f_main_image}" width="100px">
+				${FIELD.f_name}
+			</a>
 		</div>
 	</c:forEach>
 </div>
