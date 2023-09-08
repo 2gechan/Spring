@@ -17,6 +17,8 @@
 	href="${rootPath}/resources/css/login.css?${version}" />
 <link rel="stylesheet"
 	href="${rootPath}/resources/css/mypage.css?${version}" />
+	<link rel="stylesheet"
+	href="${rootPath}/resources/css/calendar.css?${version}" />
 
 <script type="text/javascript">
 	var rootPath = "${rootPath}"
@@ -25,6 +27,7 @@
 <script type="text/javascript" src="${rootPath}/resources/js/join.js"></script>
 <script type="text/javascript" src="${rootPath}/resources/js/login.js"></script>
 <script type="text/javascript" src="${rootPath}/resources/js/mypage.js"></script>
+<script type="text/javascript" src="${rootPath}/resources/js/calendar.js"></script>
 
 </head>
 <body>

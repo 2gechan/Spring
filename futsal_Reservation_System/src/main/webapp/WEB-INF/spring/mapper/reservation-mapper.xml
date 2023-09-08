@@ -5,13 +5,18 @@
 
 <mapper namespace="com.gechan.futsal.dao.ReservationDao">
 
-	<insert id="insert" >
-		insert into tbl_reservation(r_fname, r_uteam, r_uname)
+	<insert id="insert">
+		insert into tbl_reservation(r_fname,
+		r_uteam, r_uname)
 		values(#{r_fname}, #{r_uteam}, #{r_uname})
 	</insert>
 
 	<delete id="delete">
-		delete from tbl_field where f_cnumber = #{f_cnumber}
+		delete from tbl_reservation where r_seq = #{r_seq}
 	</delete>
+
+	<select id="reservationList">
+		select * from tbl_reservation where r_fname = #{r_fname}
+	</select>
 
 </mapper> 

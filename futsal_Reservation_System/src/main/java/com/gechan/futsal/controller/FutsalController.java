@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.gechan.futsal.dao.FieldDao;
 import com.gechan.futsal.dao.FileDao;
 import com.gechan.futsal.models.FieldDto;
 import com.gechan.futsal.models.FileDto;
+import com.gechan.futsal.models.ReservationDto;
 import com.gechan.futsal.models.UserDto;
 import com.gechan.futsal.service.FieldService;
 import com.gechan.futsal.service.FileService;
@@ -35,12 +35,21 @@ public class FutsalController {
 
 	@RequestMapping(value = "ceo/ceopage", method = RequestMethod.GET)
 	public String ceopage(HttpSession httpSession, Model model) {
+
 		UserDto userDto = (UserDto) httpSession.getAttribute("LOGINUSER");
+
 		if (userDto == null) {
 			return "redirect:/";
 		}
+
 		FieldDto fieldDto = fieldService.findByName(userDto.getU_id());
-		model.addAttribute("MAINFIELD", fieldDto);
+		if (fieldDto != null) {
+			model.addAttribute("MAINFIELD", fieldDto);
+			List<ReservationDto> reservationList = fieldService.ReservationList(fieldDto.getF_name());
+			if(!reservationList.isEmpty()) {
+				model.addAttribute("RESERVLIST", reservationList);				
+			}
+		}
 		model.addAttribute("CEO", userDto);
 
 		return "ceo/ceopage";
@@ -48,7 +57,7 @@ public class FutsalController {
 
 	@RequestMapping(value = "ceo/field-admin", method = RequestMethod.GET)
 	public String regField(String id, Model model) {
-		
+
 		model.addAttribute("CEOBODY", "REG");
 
 		return "ceo/ceopage";
@@ -99,13 +108,23 @@ public class FutsalController {
 	@RequestMapping(value = "/reservation", method = RequestMethod.GET)
 	public String reservation(String field, HttpSession httpSession, Model model) {
 		UserDto userDto = (UserDto) httpSession.getAttribute("LOGINUSER");
-		if(userDto == null) {
+		if (userDto == null) {
 			// model.addAttribute("BODY", "LOGIN");
 			return "redirect:/login-page";
 		}
-		
+
 		int result = fieldService.fieldReservation(field, userDto);
 
 		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/ceo/matchfinish", method = RequestMethod.GET)
+	public String mathFinish(String seq) {
+		
+		int intSeq = Integer.parseInt(seq);
+		
+		int result = fieldService.finishMatch(intSeq);
+
+		return "redirect:/ceo/ceopage";
 	}
 }

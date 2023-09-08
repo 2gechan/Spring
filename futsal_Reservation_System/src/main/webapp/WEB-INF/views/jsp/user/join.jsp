@@ -19,7 +19,7 @@
 		<div class="error pwd2"></div>
 	</div>
 		<div class="div">
-			<label>구분</label><input type="text" placeholder="구분" name="u_div" value="${DTO.u_div}" />
+			<label>구분</label><input type="text" placeholder="구분" name="u_div" value="${DTO.u_div}" readonly />
 			<div class="error div"></div>
 		</div>
 	<div class="name">

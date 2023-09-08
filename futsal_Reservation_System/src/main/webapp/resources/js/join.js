@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
 
-    if (pwd1.value === pwd2.value) {
+    if (!(pwd1.value === pwd2.value)) {
       error_pwd1.innerText = "패스워드가 일치하지 않습니다.";
       error_pwd1.classList.add("on");
       pwd1.focus();

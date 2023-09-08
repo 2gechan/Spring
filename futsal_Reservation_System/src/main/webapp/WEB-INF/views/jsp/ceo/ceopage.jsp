@@ -17,11 +17,17 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>구장을 등록해주세요</h1>
+			<c:if test="${MAINFIELD != null}">
+				<h1>${MAINFIELD.f_name}</h1>
+			</c:if>
+			<c:if test="${MAINFIELD == null}">
+				<h1>등록된 구장이 없습니다.</h1>
+			</c:if>
 		</header>
 		<div class="subtitle">
-			<span class="ceoname">${CEO.u_name}</span> <span class="todaymoeny">오늘
-				매출</span>
+			<span class="ceoname">${CEO.u_name}</span>
+			<!-- <span class="todaymoeny">오늘
+				매출</span> -->
 		</div>
 		<div class="main-wrapper">
 			<c:if test="${empty CEOBODY}">
@@ -31,8 +37,11 @@
 						<span class="field-admin">구장관리</span>
 
 					</div>
-					<img alt="" src="${rootPath}/files/${MAINFIELD.f_main_image}" width="200px" height="200px">
-					<span>${MAINFIELD.f_name}</span>
+					<c:if test="${not empty MAINFIELD}">
+						<img alt="" src="${rootPath}/files/${MAINFIELD.f_main_image}"
+							width="200px" height="200px">
+						<div>${MAINFIELD.f_name}</div>
+					</c:if>
 				</div>
 				<div class="admin review">
 					<div class="dashboard title">
@@ -43,6 +52,20 @@
 					<div class="dashboard title">
 						<span class="reservation-admin">예약 현황</span>
 					</div>
+					<c:if test="${not empty RESERVLIST}"></c:if>
+					<div class="reservationlist">
+						<c:forEach items="${RESERVLIST}" var="RESERV"
+							varStatus="loopStatus">
+							<span>${RESERV.r_uteam}<button type="button"
+									data-id="${RESERV.r_seq}">경기종료</button>
+							</span>
+							<c:if test="${!loopStatus.last}">
+								<span>VS</span>
+							</c:if>
+
+						</c:forEach>
+					</div>
+
 				</div>
 			</c:if>
 			<c:if test="${CEOBODY == 'REG'}">

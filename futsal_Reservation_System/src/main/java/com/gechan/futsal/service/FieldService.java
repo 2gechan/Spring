@@ -3,6 +3,7 @@ package com.gechan.futsal.service;
 import java.util.List;
 
 import com.gechan.futsal.models.FieldDto;
+import com.gechan.futsal.models.ReservationDto;
 import com.gechan.futsal.models.UserDto;
 
 public interface FieldService {
@@ -18,5 +19,9 @@ public interface FieldService {
 	public int update(FieldDto fieldDto);
 
 	public int fieldReservation(String imageName, UserDto userDto);
+	
+	public List<ReservationDto> ReservationList(String fieldName);
+	
+	public int finishMatch(long seq);
 
 }

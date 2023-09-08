@@ -1,6 +1,10 @@
 package com.gechan.futsal.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+
+import com.gechan.futsal.models.ReservationDto;
 
 public interface ReservationDao {
 	
@@ -8,4 +12,5 @@ public interface ReservationDao {
 	
 	public int delete(long seq);
 
+	public List<ReservationDto> reservationList(String r_fname);
 }
