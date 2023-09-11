@@ -37,17 +37,20 @@
 						<span class="field-admin">구장관리</span>
 
 					</div>
-					<c:if test="${not empty MAINFIELD}">
-						<img alt="" src="${rootPath}/files/${MAINFIELD.f_main_image}"
-							width="200px" height="200px">
-						<div>${MAINFIELD.f_name}</div>
-					</c:if>
+					<div class="field imageBox">
+						<c:if test="${not empty MAINFIELD}">
+							<img alt="" src="${rootPath}/files/${MAINFIELD.f_main_image}"
+								width="200px" height="200px">
+							<div>${MAINFIELD.f_name}</div>
+						</c:if>
+					</div>
+
 				</div>
-				<div class="admin review">
+				<!-- <div class="admin review">
 					<div class="dashboard title">
 						<span class="review-admin">후기 관리</span>
 					</div>
-				</div>
+				</div> -->
 				<div class="admin reservation">
 					<div class="dashboard title">
 						<span class="reservation-admin">예약 현황</span>

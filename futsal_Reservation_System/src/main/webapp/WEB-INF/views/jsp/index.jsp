@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set value="${pageContext.request.contextPath}" var="rootPath" />
-<c:set value="20230826-004" var="version" />
+<c:set value="20230911-001" var="version" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,8 +17,9 @@
 	href="${rootPath}/resources/css/login.css?${version}" />
 <link rel="stylesheet"
 	href="${rootPath}/resources/css/mypage.css?${version}" />
-	<link rel="stylesheet"
-	href="${rootPath}/resources/css/calendar.css?${version}" />
+
+<link rel="stylesheet"
+	href="${rootPath}/resources/css/reservation.css?${version}" />
 
 <script type="text/javascript">
 	var rootPath = "${rootPath}"
@@ -27,14 +28,13 @@
 <script type="text/javascript" src="${rootPath}/resources/js/join.js"></script>
 <script type="text/javascript" src="${rootPath}/resources/js/login.js"></script>
 <script type="text/javascript" src="${rootPath}/resources/js/mypage.js"></script>
-<script type="text/javascript" src="${rootPath}/resources/js/calendar.js"></script>
+<script type="text/javascript"
+	src="${rootPath}/resources/js/calendar.js"></script>
 
 </head>
 <body>
 	<header class="main title">
-		<button class="onOff">
-		&#61
-		</button>
+		<button class="onOff">&#61</button>
 		<h1>Every Futsal</h1>
 	</header>
 
@@ -44,7 +44,7 @@
 			<section>
 				<nav class="home">홈</nav>
 				<nav class="reservation-page">구장 예약</nav>
-				<nav class="ranking-page">전국 랭킹</nav>
+				<!-- <nav class="ranking-page">전국 랭킹</nav> -->
 				<c:choose>
 					<c:when test="${empty LOGINUSER }">
 						<nav class="my-page">마이페이지</nav>
@@ -81,7 +81,7 @@
 			<c:if test="${BODY == 'UPDATE'}">
 				<%@ include file="/WEB-INF/views/jsp/user/infoupdate.jsp"%>
 			</c:if>
-			
+
 			<c:if test="${BODY == 'RESERV'}">
 				<%@ include file="/WEB-INF/views/jsp/futsal/field-reservation.jsp"%>
 			</c:if>

@@ -59,6 +59,10 @@ div.main-wrapper div.admin {
   text-align: center;
 }
 
+div.field.imageBox {
+  margin: auto 10px;
+}
+
 div.admin div.dashboard.title {
   border-bottom: 1px solid black;
   background-color: antiquewhite;

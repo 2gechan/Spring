@@ -3,7 +3,7 @@
 div.main.whojoin {
   width: 80%;
   height: 70%;
-  margin: 50px auto;
+  margin: 45px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +16,7 @@ div.join.div {
 
 div.main.whojoin a {
   background-color: blanchedalmond;
+  margin: 8px;
   padding: 12px 16px;
   text-align: center;
 }
@@ -33,7 +34,7 @@ form.joinForm {
 
 form.joinForm div {
   width: 70%;
-  margin: 8px auto;
+  margin: 5px auto;
   display: flex;
   flex-direction: column;
 }

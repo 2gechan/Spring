@@ -31,4 +31,4 @@
 		<button type="button" class="delete button" data-id="${USER.u_id}">회원탈퇴</button>
 	</div>
 </div>
-<h1>최근 예약 내역 5개 까지만 보여주기</h1>
+

@@ -17,7 +17,53 @@ div.main.mypage div {
 }
 
 div.mypage.button button {
-  background-color: darkgray;
+  background-color: #eee;
   border: none;
   padding: 12px 16px;
+  border-radius: 8px;
+}
+
+div.mypage.button button:hover {
+  background-color: #ddd;
+}
+
+form.user.updateForm {
+  width: 80%;
+  height: 90%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  background-color: rgb(122, 227, 138);
+}
+
+form.user.updateForm div {
+  width: 70%;
+  margin: 4px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form.user.updateForm label {
+  text-align: left;
+}
+
+form.user.updateForm div input {
+  padding: 5px;
+}
+
+div.update.button {
+  display: flex;
+}
+
+div.update.button button {
+  background-color: #eee;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 5px;
+}
+div.update.button button:hover {
+  background-color: #ddd;
 }

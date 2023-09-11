@@ -35,7 +35,7 @@
 				name="u_team" value="${DTO.u_team}" />
 		</div>
 	</c:if>
-	<div>
+	<div class="update button">
 		<button class="update backBtn" type="button">뒤로가기</button>
 		<button class="updateBtn" type="button">정보수정</button>
 	</div>

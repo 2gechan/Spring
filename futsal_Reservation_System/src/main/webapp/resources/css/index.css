@@ -21,6 +21,19 @@ body {
   height: 100%;
 }
 
+header {
+  margin: 0 auto;
+}
+
+header h1 {
+  text-align: center;
+}
+
+h1.first.title {
+  text-align: center;
+  margin: 200px auto;
+}
+
 header.main.title {
   display: flex;
   height: 5rem;
